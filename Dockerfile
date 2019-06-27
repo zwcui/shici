@@ -2,7 +2,7 @@ FROM golang:latest
 
 MAINTAINER zwcui<zwcui2017@163.com>
 
-ENV kpdir /go/src/baseApi
+ENV kpdir /go/src/shici
 
 RUN mkdir -p ${kpdir}
 
@@ -12,6 +12,6 @@ WORKDIR ${kpdir}
 
 RUN go build -v
 
-EXPOSE 8081
+EXPOSE 8083
 
-ENTRYPOINT ["./baseApi"]
+ENTRYPOINT ["./shici"]

@@ -1,9 +1,9 @@
 package controllers
 
 import (
-	"baseApi/base"
-	"baseApi/models"
-	"baseApi/util"
+	"shici/base"
+	"shici/models"
+	"shici/util"
 	"gopkg.in/mgo.v2/bson"
 	"strconv"
 )

@@ -7,10 +7,10 @@ import (
 	"os"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/astaxie/beego/cache"
-	"baseApi/models"
+	_ "shici/models"
 	"gopkg.in/mgo.v2"
 	"github.com/garyburd/redigo/redis"
-	"baseApi/util"
+	"shici/util"
 	"strconv"
 )
 
@@ -65,40 +65,40 @@ func init(){
 		dbConfig.DbType = "mysql"
 		dbConfig.DbHost = "106.14.202.179"
 		dbConfig.DbPort = ":3306"
-		dbConfig.DbUser = "startapi"
-		dbConfig.DbPassword = "startapi"
-		dbConfig.DbName = "startapi"
+		dbConfig.DbUser = "shici"
+		dbConfig.DbPassword = "shici"
+		dbConfig.DbName = "shici"
 		dbConfig.DbCharset = "utf8mb4"
 		rdConfig.RedisConn = "106.14.202.179:6379"
 		rdConfig.Auth = "baseapi"
 		mongoDBUrl = "106.14.202.179:27017"
-		mongoDBName = "baseapi"
+		mongoDBName = "shici"
 	} else if beego.BConfig.RunMode == RUN_MODE_TEST {
 		serverURL = "http://106.14.202.179:8888"
 		dbConfig.DbType = "mysql"
 		dbConfig.DbHost = "106.14.202.179"
 		dbConfig.DbPort = ":3306"
-		dbConfig.DbUser = "startapi"
-		dbConfig.DbPassword = "startapi"
-		dbConfig.DbName = "startapi"
+		dbConfig.DbUser = "shici"
+		dbConfig.DbPassword = "shici"
+		dbConfig.DbName = "shici"
 		dbConfig.DbCharset = "utf8mb4"
 		rdConfig.RedisConn = "106.14.202.179:6379"
 		rdConfig.Auth = "baseapi"
 		mongoDBUrl = "106.14.202.179:27017"
-		mongoDBName = "baseapi"
+		mongoDBName = "shici"
 	} else if beego.BConfig.RunMode == RUN_MODE_PROD {
 		serverURL = "http://106.14.202.179:8888"
 		dbConfig.DbType = "mysql"
 		dbConfig.DbHost = "106.14.202.179"
 		dbConfig.DbPort = ":3306"
-		dbConfig.DbUser = "startapi"
-		dbConfig.DbPassword = "startapi"
-		dbConfig.DbName = "startapi"
+		dbConfig.DbUser = "shici"
+		dbConfig.DbPassword = "shici"
+		dbConfig.DbName = "shici"
 		dbConfig.DbCharset = "utf8mb4"
 		rdConfig.RedisConn = "106.14.202.179:6379"
 		rdConfig.Auth = "baseapi"
 		mongoDBUrl = "106.14.202.179:27017"
-		mongoDBName = "baseapi"
+		mongoDBName = "shici"
 	} else {
 		panic("运行标识错误")
 	}
@@ -159,10 +159,10 @@ func initDB(dbConfig databaseConfig){
 	DBEngine.SetLogger(xorm.NewSimpleLogger(f))
 
 	//同步表结构
-	err = DBEngine.Sync2(new(models.User), new(models.Role), new(models.UserRole))
-	if err != nil {
-		panic("同步表结构失败! err:"+err.Error())
-	}
+	//err = DBEngine.Sync2(new(models.User), new(models.Role), new(models.UserRole))
+	//if err != nil {
+	//	panic("同步表结构失败! err:"+err.Error())
+	//}
 }
 
 //初始化redis

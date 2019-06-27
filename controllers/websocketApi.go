@@ -9,8 +9,8 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"strings"
-	"baseApi/models"
-	"baseApi/util"
+	"shici/models"
+	"shici/util"
 	"flag"
 )
 

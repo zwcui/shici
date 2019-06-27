@@ -1,5 +1,5 @@
 // @APIVersion 1.0.0
-// @Title baseApi 接口基础工程
+// @Title shici 接口基础工程
 // @Description 接入Redis,MongoDB,xorm,seelog等，加入部署脚本
 // @Contact zwcui2017@163.com
 // @TermsOfServiceUrl http://beego.me/
@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"baseApi/controllers"
+	"shici/controllers"
 
 	"github.com/astaxie/beego"
 )

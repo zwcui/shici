@@ -50,16 +50,16 @@ then
 fi
 
 ssh  root@106.14.202.179 version=$version apiport=$apiport socketport=$socketport runmode=$runmode 'bash -se' <<'ENDSSH'
-cd ~/app/api/baseApi/dev/baseApi
+cd ~/app/api/shici/dev/shici
 git pull;
-echo baseapi\_$runmode
+echo shici\_$runmode
 #go clean;
-if docker build -t baseapi\_$runmode:$version .
+if docker build -t shici\_$runmode:$version .
 then
     echo "stop and rm old container,start new one..."
-    docker stop baseapi\_$runmode
-    docker rm baseapi\_$runmode
-    docker run --restart=always --name baseapi\_$runmode -d -p $apiport:8080 -p $socketport:6666 baseapi\_$runmode:$version
+    docker stop shici\_$runmode
+    docker rm shici\_$runmode
+    docker run --restart=always --name shici\_$runmode -d -p $apiport:8080 -p $socketport:6666 shici\_$runmode:$version
     docker ps
 fi
 ENDSSH

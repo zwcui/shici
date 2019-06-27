@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  title: baseApi 接口基础工程
+  title: shici 接口基础工程
   description: 接入Redis,MongoDB,xorm,seelog等，加入部署脚本
   version: 1.0.0
   termsOfService: http://beego.me/

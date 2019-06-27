@@ -1,13 +1,13 @@
 package main
 
 import (
-	_ "baseApi/routers"
+	_ "shici/routers"
 	"github.com/astaxie/beego"
-	_ "baseApi/models"
-	_ "baseApi/base"
-	_ "baseApi/task"
-	_ "baseApi/controllers"
-	"baseApi/util"
+	_ "shici/models"
+	_ "shici/base"
+	_ "shici/task"
+	_ "shici/controllers"
+	"shici/util"
 	"github.com/astaxie/beego/plugins/cors"
 )
 
