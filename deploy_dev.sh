@@ -49,11 +49,12 @@ then
 	exit 1
 fi
 
+echo "rsync shici"
+rsync -avzIP --delete --exclude .git ./  root@106.14.202.179:/root/app/api/shici/dev/shici/
+
 ssh  root@106.14.202.179 version=$version apiport=$apiport socketport=$socketport runmode=$runmode 'bash -se' <<'ENDSSH'
-cd ~/app/api/shici/dev/shici
-git pull;
-echo shici\_$runmode
-#go clean;
+cd /root/app/api/shici/dev/shici/
+
 if docker build -t shici\_$runmode:$version .
 then
     echo "stop and rm old container,start new one..."
