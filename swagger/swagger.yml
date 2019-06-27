@@ -1,0 +1,85 @@
+swagger: "2.0"
+info:
+  title: baseApi 接口基础工程
+  description: 接入Redis,MongoDB,xorm,seelog等，加入部署脚本
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: zwcui2017@163.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /message/:
+    post:
+      tags:
+      - message
+      description: 新增MongoDB消息
+      operationId: MessageController.新增MongoDB消息
+      parameters:
+      - in: formData
+        name: content
+        description: 内容
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.MongoDBMessage'
+        "403":
+          description: create message failed
+  /user/:
+    post:
+      tags:
+      - user
+      description: create users
+      operationId: UserController.新增用户
+      parameters:
+      - in: formData
+        name: nickName
+        description: 昵称
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} success'
+        "403":
+          description: create users failed
+definitions:
+  models.MongoDBMessage:
+    title: MongoDBMessage
+    type: object
+    properties:
+      content:
+        description: 聊天内容
+        type: string
+      created:
+        description: 消息时间
+        type: integer
+        format: int64
+      groupId:
+        description: 聊天组id
+        type: integer
+        format: int64
+      mId:
+        description: 消息id
+        type: integer
+        format: int64
+      senderUid:
+        description: 发送人id
+        type: integer
+        format: int64
+      type:
+        description: 聊天类型，1为文本，2为语音
+        type: integer
+        format: int64
+tags:
+- name: user
+  description: |
+    继承apiController
+    用户模块
+- name: message
+  description: |
+    继承apiController
+    消息模块
